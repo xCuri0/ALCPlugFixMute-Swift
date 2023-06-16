@@ -83,6 +83,7 @@ class ALCPlugFix {
         }.forEach {
             sendHDAVerb($0)
         }
+        listener.mutePropertyListenerBlock(inNumberAddresses: 0, inAddresses: &listener.muteAddress)
     }
 
     @objc private func handleSleep(_ notification: NSNotification) {

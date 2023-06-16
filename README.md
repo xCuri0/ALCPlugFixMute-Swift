@@ -42,4 +42,4 @@ xcodebuild -configuration Release
 - [goodwin](https://github.com/goodwin) for original work on Obj-C based ALCPlugFix
 - [zen-zhen](https://github.com/zhen-zen) for direct kernelspace connection
 - [black-dragon74](https://github.com/black-dragon74) for writing and maintaing this software
-
+- [the-eric-kwok](https://github.com/the-eric-kwok) for restore mute status on boot

@@ -1,6 +1,7 @@
 # ALCPlugFixMute-Swift
 
 (c) 2020 black.dragon74 aka Nick
+
 (c) 2023 xCuri0
 
 macOS daemon to send HD Audio commands (HDA Verbs) to an `IOHDACodecDevice` from user-space.

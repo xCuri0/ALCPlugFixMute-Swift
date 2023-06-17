@@ -43,6 +43,9 @@
 		01B1AD292537112F009C072C /* Listener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Listener.swift; sourceTree = "<group>"; };
 		01B1AD3225372242009C072C /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
 		01C9D9C3253EFF5200E475B0 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		C8E4CC692A3D83850057BA8F /* HPMuteLEDMic1.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HPMuteLEDMic1.plist; sourceTree = "<group>"; };
+		C8E4CC6A2A3D83E80057BA8F /* HPMuteLEDMic2.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HPMuteLEDMic2.plist; sourceTree = "<group>"; };
+		C8E4CC6B2A3D83F70057BA8F /* HPMuteLEDMic3.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = HPMuteLEDMic3.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +66,9 @@
 				01A752DB2537694300A7A109 /* com.black-dragon74.ALCPlugFix.plist */,
 				01A752DA2537680E00A7A109 /* sample.plist */,
 				01A752D125374D1700A7A109 /* install.sh */,
+				C8E4CC692A3D83850057BA8F /* HPMuteLEDMic1.plist */,
+				C8E4CC6A2A3D83E80057BA8F /* HPMuteLEDMic2.plist */,
+				C8E4CC6B2A3D83F70057BA8F /* HPMuteLEDMic3.plist */,
 			);
 			path = Misc;
 			sourceTree = "<group>";
@@ -202,7 +208,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "cd \"${PROJECT_DIR}/${PROJECT_NAME}/Misc/\"\ncp install.sh \"${TARGET_BUILD_DIR}\"\ncp sample.plist \"${TARGET_BUILD_DIR}\"\ncp com.black-dragon74.ALCPlugFix.plist \"${TARGET_BUILD_DIR}\"\n\ncd \"${TARGET_BUILD_DIR}\"\n\ndist=(\"${FULL_PRODUCT_NAME}\")\ndist+=(\"install.sh\")\ndist+=(\"sample.plist\")\ndist+=(\"com.black-dragon74.ALCPlugFix.plist\")\n\narchive=\"${PRODUCT_NAME}-$(echo $CONFIGURATION | tr /a-z/ /A-Z/).zip\"\nrm -rf *.zip\nif [ \"$CONFIGURATION\" == \"Release\" ]; then\n  strip -x -T \"${EXECUTABLE_PATH}\" &>/dev/null || strip -x \"${EXECUTABLE_PATH}\"\nfi\nzip -qry -FS \"${archive}\" \"${dist[@]}\"\n";
+			shellScript = "cd \"${PROJECT_DIR}/${PROJECT_NAME}/Misc/\"\ncp install.sh \"${TARGET_BUILD_DIR}\"\ncp *.plist \"${TARGET_BUILD_DIR}\"\n\ncd \"${TARGET_BUILD_DIR}\"\n\ndist=(\"${FULL_PRODUCT_NAME}\")\ndist+=(\"install.sh\")\ndist+=(\"sample.plist\")\ndist+=(\"HPMuteLEDMic1.plist\")\ndist+=(\"HPMuteLEDMic2.plist\")\ndist+=(\"HPMuteLEDMic3.plist\")\n\narchive=\"${PRODUCT_NAME}-$(echo $CONFIGURATION | tr /a-z/ /A-Z/).zip\"\nrm -rf *.zip\nif [ \"$CONFIGURATION\" == \"Release\" ]; then\n  strip -x -T \"${EXECUTABLE_PATH}\" &>/dev/null || strip -x \"${EXECUTABLE_PATH}\"\nfi\nzip -qry -FS \"${archive}\" \"${dist[@]}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

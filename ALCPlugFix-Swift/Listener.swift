@@ -36,7 +36,15 @@ class Listener {
     var delegate: ListenerDelegate?
 
     init() {
-        AudioObjectGetPropertyData(AudioObjectID(kAudioObjectSystemObject), &defaultAddress, 0, nil, &defaultSize, &defaultDevice)
+        while true {
+            let res = AudioObjectGetPropertyData(AudioObjectID(kAudioObjectSystemObject), &defaultAddress, 0, nil, &defaultSize, &defaultDevice)
+
+            if res == kAudioHardwareNoError && defaultDevice != kAudioObjectUnknown {
+                break
+            }
+            // Wait for coreaudiod to start
+            Thread.sleep(forTimeInterval: 0.1)
+        }
     }
 
     func listen() {
